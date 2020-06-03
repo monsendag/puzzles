@@ -11,7 +11,54 @@ public class Calculator {
      * task 4: if the string consist of one or more numbers and one or more powers (x^z), return the sum
      */
     public int sum(String str) {
-        // your implementation here
-        return 0;
+
+        // empty
+        if(str == null || str.isEmpty()) {
+            return -1;
+        }
+
+        // single int
+        if(isInteger(str)) {
+            return Integer.parseInt(str);
+        }
+
+
+        // separate ints
+        char[] chars = str.toCharArray();
+        StringBuffer buffer;
+        int sum = 0;
+
+        for (int i = 0; i < chars.length; i++) {
+            int j = i;
+
+            buffer = new StringBuffer();
+            while(Character.isDigit(chars[j]) && j < chars.length) {
+                buffer.append(chars[j]);
+                j++;
+            }
+
+            System.out.println(buffer.toString());
+
+            if(buffer.length() > 0) {
+                int num = Integer.parseInt(buffer.toString());
+                sum += num;
+
+                System.out.println(num);
+            }
+
+        }
+
+
+        return sum;
+    }
+
+
+    private boolean isInteger(String str) {
+        for (char c : str.toCharArray()) {
+            if(!Character.isDigit(c)) {
+                return false;
+            }
+        }
+        return true;
     }
 }
