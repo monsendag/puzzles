@@ -6,7 +6,7 @@ Summarize the integers in a string
 
 `git checkout calculator`
 
-** Solution **  
+**Solution**  
 `git checkout calculator-solution`
 
 ## paginator
