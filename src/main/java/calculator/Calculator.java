@@ -29,12 +29,14 @@ public class Calculator {
         int sum = 0;
 
         for (int i = 0; i < chars.length; i++) {
-            int j = i;
 
             buffer = new StringBuffer();
-            while(Character.isDigit(chars[j]) && j < chars.length) {
-                buffer.append(chars[j]);
-                j++;
+            while(Character.isDigit(chars[i])) {
+                buffer.append(chars[i]);
+                i++;
+                if(chars.length <= i) {
+                    break;
+                }
             }
 
             System.out.println(buffer.toString());
@@ -48,7 +50,9 @@ public class Calculator {
 
         }
 
-
+        if (sum == 0){
+            return -1;
+        }
         return sum;
     }
 
